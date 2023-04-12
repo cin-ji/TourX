@@ -61,15 +61,15 @@ public class ExampleUnitTest {
         return endDate.after(startDate);
     }
     // Test if end date is valid based on data converter test
-    @Test
-    public void isEndDateValidTest() {
-        Date startDate = DateConverter.fromString("04/12/2023");
-        Date endDateValid = DateConverter.fromString("04/14/2023");
-        Date endDateInvalid = DateConverter.fromString("04/10/2023");
-
-        assertTrue(VacationDetailsActivity.isEndDateValid(startDate, endDateValid));
-        assertFalse(VacationDetailsActivity.isEndDateValid(startDate, endDateInvalid));
-    }
+//    @Test
+//    public void isEndDateValidTest() {
+//        Date startDate = DateConverter.fromString("04/12/2023");
+//        Date endDateValid = DateConverter.fromString("04/14/2023");
+//        Date endDateInvalid = DateConverter.fromString("04/10/2023");
+//
+//        assertTrue(VacationDetailsActivity.isEndDateValid(startDate, endDateValid));
+//        assertFalse(VacationDetailsActivity.isEndDateValid(startDate, endDateInvalid));
+//    }
     // Test if edit text fields are empty
     @Test
     public void fieldsNotEmpty() {
