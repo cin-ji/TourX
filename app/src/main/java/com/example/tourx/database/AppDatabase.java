@@ -12,7 +12,7 @@ import com.example.tourx.dao.VacationDao;
 import com.example.tourx.entity.Excursion;
 import com.example.tourx.entity.Vacation;
 
-@Database(entities = {Vacation.class, Excursion.class}, version = 33, exportSchema = false)
+@Database(entities = {Vacation.class, Excursion.class}, version = 2, exportSchema = false)
 @TypeConverters(DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase INSTANCE;
