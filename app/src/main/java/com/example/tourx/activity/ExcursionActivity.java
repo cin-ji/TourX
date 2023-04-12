@@ -6,6 +6,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,7 +17,11 @@ import com.example.tourx.R;
 import com.example.tourx.adapter.ExcursionAdapter;
 import com.example.tourx.database.DateConverter;
 import com.example.tourx.entity.Excursion;
+import com.example.tourx.entity.Vacation;
 import com.example.tourx.viewmodel.ExcursionViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExcursionActivity extends AppCompatActivity {
     public static final String KEY_VacationID = "com.example.tourx.activity.KEY_VacationID";
@@ -23,30 +29,50 @@ public class ExcursionActivity extends AppCompatActivity {
     private Button toEditSelectedExcursion;
     private Excursion selectedExcursion = null;
     private ExcursionAdapter adapter;
+    private List<Excursion> originalExcursions;
+    private int vacationId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excursion);
-        // Initialize Excursion ViewModel
-        ExcursionViewModel excursionViewModel = new ViewModelProvider(this).get(ExcursionViewModel.class);
-        // Initialize ExcursionAdapter
-        adapter = new ExcursionAdapter();
+
+        SearchView searchViewExcursions = findViewById(R.id.searchViewExcursions);
+        searchViewExcursions.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                applyFilter(newText);
+                return true;
+            }
+        });
+
+        searchViewExcursions.setOnCloseListener(() -> {
+            adapter.setExcursions(originalExcursions); // Restore the original list of vacations
+            return false; // Return false to allow the default behavior (clearing the text and losing focus)
+        });
+
 
         // Get Vacation selected
         Intent intent = getIntent();
-        int vacationId = intent.getIntExtra(KEY_VacationID, -1);
+        vacationId = intent.getIntExtra(KEY_VacationID, -1);
         String vacationStartDate = intent.getStringExtra(VacationDetailsActivity.KEY_StartDate);
         String vacationEndDate = intent.getStringExtra(VacationDetailsActivity.KEY_EndDate);
 
-        // Navigate to ExcursionDetailsActivity to add an Excursion
-        Button toExcursionDetailsActivity = findViewById(R.id.buttonAddAExcursion);
-        toExcursionDetailsActivity.setOnClickListener(v -> {
-            Intent excursionDetailsIntent = new Intent(ExcursionActivity.this, ExcursionDetailsActivity.class);
-            excursionDetailsIntent.putExtra(KEY_VacationID, vacationId);
-            excursionDetailsIntent.putExtra(ExcursionDetailsActivity.KEY_VacationStartDate, vacationStartDate);
-            excursionDetailsIntent.putExtra(ExcursionDetailsActivity.KEY_VacationEndDate, vacationEndDate);
-            startActivity(excursionDetailsIntent);
+        // Initialize ExcursionAdapter
+        adapter = new ExcursionAdapter();
+
+        // Initialize Excursion ViewModel
+        ExcursionViewModel excursionViewModel = new ViewModelProvider(this).get(ExcursionViewModel.class);
+        excursionViewModel.getAllExcursions(vacationId).observe(this, excursions -> {
+            adapter.setExcursions(excursions);
+            originalExcursions = new ArrayList<>(excursions); // Store the original list of excursions
         });
+
         // Navigate to ExcursionDetailsActivity with selected Excursion to edit
         toEditSelectedExcursion = findViewById(R.id.buttonEditExcursion);
         toEditSelectedExcursion.setOnClickListener(v -> {
@@ -85,6 +111,7 @@ public class ExcursionActivity extends AppCompatActivity {
             toEditSelectedExcursion.setEnabled(true);
         });
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -93,5 +120,19 @@ public class ExcursionActivity extends AppCompatActivity {
             toEditSelectedExcursion.setEnabled(false);
             selectedExcursion = null;
         }
+    }
+
+    private void applyFilter(String query) {
+        List<Excursion> filteredExcursions = new ArrayList<>();
+        if (query.isEmpty()) {
+            filteredExcursions.addAll(originalExcursions);
+        } else {
+            for (Excursion excursion : originalExcursions) {
+                if (excursion.getExcursionTitle().toLowerCase().startsWith(query.toLowerCase())) {
+                    filteredExcursions.add(excursion);
+                }
+            }
+        }
+        adapter.setExcursions(filteredExcursions);
     }
 }
