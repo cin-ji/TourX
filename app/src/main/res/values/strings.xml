@@ -1,3 +1,26 @@
 <resources>
-    <string name="app_name">Tour X</string>
+    <string name="app_name">TourX</string>
+    <string name="welcome_title">Welcome!</string>
+    <string name="get_started">Get Started</string>
+    <string name="add_a_vacation">Add A Vacation</string>
+    <string name="edit_vacation">Edit Vacation</string>
+    <string name="list_of_vacations">List of Vacations</string>
+    <string name="vacation_title">Vacation Title</string>
+    <string name="hotel_name">Hotel Name</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="add_vacation">Add Vacation</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="add_excursions">Add Excursions</string>
+    <string name="delete_vacation">Delete Vacation</string>
+    <string name="excursion_title">Excursion Title</string>
+    <string name="excursion_date">Excursion Date</string>
+    <string name="list_of_excursions">List of Excursions</string>
+    <string name="edit_excursion">Edit Excursion</string>
+    <string name="add_an_excursion">Add An Excursion</string>
+    <string name="add_excursion">Add Excursion</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_excursion">Delete Excursion</string>
+    <string name="share_vacation">Share Vacation</string>
+    <string name="notify_me">Notify Me</string>
 </resources>
