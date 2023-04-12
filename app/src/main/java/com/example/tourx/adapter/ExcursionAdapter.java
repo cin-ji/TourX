@@ -67,6 +67,10 @@ public class ExcursionAdapter extends RecyclerView.Adapter<ExcursionAdapter.Excu
         return excursions.size();
     }
 
+    public List<Excursion> getExcursions() {
+        return excursions;
+    }
+
     // Setter for Excursions and updates(redraws) the list
     public void setExcursions(List<Excursion> excursions) {
         this.excursions = excursions;
