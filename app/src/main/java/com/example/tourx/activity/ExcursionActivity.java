@@ -72,7 +72,15 @@ public class ExcursionActivity extends AppCompatActivity {
             adapter.setExcursions(excursions);
             originalExcursions = new ArrayList<>(excursions); // Store the original list of excursions
         });
-
+        // Navigate to ExcursionDetailsActivity to add an Excursion
+        Button toExcursionDetailsActivity = findViewById(R.id.buttonAddAExcursion);
+        toExcursionDetailsActivity.setOnClickListener(v -> {
+            Intent excursionDetailsIntent = new Intent(ExcursionActivity.this, ExcursionDetailsActivity.class);
+            excursionDetailsIntent.putExtra(KEY_VacationID, vacationId);
+            excursionDetailsIntent.putExtra(ExcursionDetailsActivity.KEY_VacationStartDate, vacationStartDate);
+            excursionDetailsIntent.putExtra(ExcursionDetailsActivity.KEY_VacationEndDate, vacationEndDate);
+            startActivity(excursionDetailsIntent);
+        });
         // Navigate to ExcursionDetailsActivity with selected Excursion to edit
         toEditSelectedExcursion = findViewById(R.id.buttonEditExcursion);
         toEditSelectedExcursion.setOnClickListener(v -> {
