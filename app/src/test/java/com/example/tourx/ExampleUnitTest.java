@@ -4,10 +4,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-import android.content.Intent;
-
-import com.example.tourx.activity.ExcursionDetailsActivity;
-import com.example.tourx.activity.VacationDetailsActivity;
 import com.example.tourx.database.DateConverter;
 import com.example.tourx.entity.Excursion;
 import com.example.tourx.entity.Vacation;

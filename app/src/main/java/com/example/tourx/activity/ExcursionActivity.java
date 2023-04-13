@@ -7,7 +7,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,7 +16,6 @@ import com.example.tourx.R;
 import com.example.tourx.adapter.ExcursionAdapter;
 import com.example.tourx.database.DateConverter;
 import com.example.tourx.entity.Excursion;
-import com.example.tourx.entity.Vacation;
 import com.example.tourx.viewmodel.ExcursionViewModel;
 
 import java.util.ArrayList;
