@@ -9,7 +9,7 @@ This is a vacation mobile app built using Java in Android Studio. The mobile app
 
 ## Screenshots
 <p float="left">
-
+<img src="https://github.com/cin-ji/TourX/blob/master/screenshots/Home.jpeg?raw=true" width=300>
 <img src="https://github.com/cin-ji/TourX/blob/master/screenshots/ListofV.jpeg?raw=true" width=300>
 <img src="https://github.com/cin-ji/TourX/blob/master/screenshots/AddV.jpeg?raw=true" width=300>
 <img src="https://github.com/cin-ji/TourX/blob/master/screenshots/EditV.jpeg?raw=true" width=300>
