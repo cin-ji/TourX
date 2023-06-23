@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/vacation_bg"
     tools:context=".activity.VacationDetailsActivity">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_a_vacation"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +25,7 @@
         android:hint="@string/vacation_title"
         android:autofillHints="Vacation Title"
         android:inputType="text"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewScreenTitle" />
@@ -32,6 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hotel_name"
+        android:textColor="@color/white"
         android:autofillHints="Hotel Name"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +49,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/start_date"
+        android:textColor="@color/white"
         android:autofillHints="Start Date"
         android:focusable="false"
         android:inputType="date"
@@ -59,6 +64,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/end_date"
+        android:textColor="@color/white"
         android:autofillHints="End Date"
         android:focusable="false"
         android:inputType="date"
@@ -113,6 +119,7 @@
         android:layout_marginBottom="8dp"
         android:enabled="false"
         android:text="@string/save_changes"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/buttonDeleteVacation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
@@ -139,6 +146,7 @@
         android:layout_marginBottom="56dp"
         android:enabled="false"
         android:text="@string/delete_vacation"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonAddAExcursion" />
