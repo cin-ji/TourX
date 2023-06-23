@@ -10,12 +10,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/vacation_title"
+        android:textColor="@color/white"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textViewHotelName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="@string/hotel_name"
         android:textSize="16sp" />
 
@@ -23,6 +25,7 @@
         android:id="@+id/textViewStartDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="@string/start_date"
         android:textSize="14sp" />
 
@@ -30,6 +33,7 @@
         android:id="@+id/textViewEndDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="@string/end_date"
         android:textSize="14sp" />
 
